@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import BitcoinRatesCustom from "../components/BitcoinRatesCustom";
 
 export const BitcoinRates = () => {
   // STATES / VAR
@@ -10,25 +11,12 @@ export const BitcoinRates = () => {
   return (
     <Box
       display={"flex"}
-      flexDirection={"column"}
       justifyContent={"center"}
       width={"inherit"}
       height={"inherit"}
+      p={2}
     >
-      <Box flex={10}>
-        <Typography
-          variant="h3"
-          textAlign={"center"}
-        >
-          Welcome Page
-        </Typography>
-        <Typography
-          variant="h4"
-          textAlign={"center"}
-        >
-          Content goes here
-        </Typography>
-      </Box>
+      <BitcoinRatesCustom />
     </Box>
   );
 };
