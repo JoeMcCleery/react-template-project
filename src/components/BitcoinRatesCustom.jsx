@@ -12,18 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 
-interface IConversionResult {
-  loading: boolean;
-  price: string;
-  error: string;
-}
-interface IAction {
-  type: "FETCH" | "SUCCESS" | "ERROR";
-  payload: string;
-}
-type Currency = "USD" | "AUD" | "NZD" | "GBP" | "EUR" | "SGD";
-
-const currencies: Currency[] = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
+const currencies = ["USD", "AUD", "NZD", "GBP", "EUR", "SGD"];
 
 const options = currencies.map((curr) => (
   <MenuItem
@@ -34,10 +23,7 @@ const options = currencies.map((curr) => (
   </MenuItem>
 ));
 
-function reducer(
-  _result: IConversionResult,
-  action: IAction
-): IConversionResult {
+function reducer(_result, action) {
   switch (action.type) {
     case "FETCH":
       return { loading: true, price: "", error: "" };
@@ -48,7 +34,7 @@ function reducer(
   }
 }
 
-function useConversion(currency: Currency) {
+function useConversion(currency) {
   const [result, dispatch] = useReducer(reducer, {
     loading: true,
     price: "",
@@ -112,7 +98,7 @@ export default function BitcoinRatesCustom() {
           id="currency-dropdown"
           value={currency}
           label="Target Currency"
-          onChange={(e) => setCurrency(e.target.value as Currency)}
+          onChange={(e) => setCurrency(e.target.value)}
         >
           {options}
         </Select>
