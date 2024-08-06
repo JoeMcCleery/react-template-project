@@ -11,8 +11,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import { LetterAvatar } from "./LetterAvatar";
 import { useMainContext } from "../store/mainStore";
+import { NavLink } from "react-router-dom";
 
-const pages = [{ title: "Home", href: "/home" }];
+const pages = [
+  { title: "Home", href: "/home" },
+  { title: "Bitcoin Rates", href: "/bitcoin-rates" },
+];
 
 export const Navbar = () => {
   const { currentUser } = useMainContext();
@@ -34,8 +38,8 @@ export const Navbar = () => {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={NavLink}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -85,7 +89,8 @@ export const Navbar = () => {
                   onClick={handleCloseNavMenu}
                 >
                   <Link
-                    href={page.href}
+                    component={NavLink}
+                    to={page.href}
                     sx={{ color: "inherit", textDecoration: "none" }}
                   >
                     <Typography textAlign="center">{page.title}</Typography>
@@ -99,8 +104,8 @@ export const Navbar = () => {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={NavLink}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -116,11 +121,14 @@ export const Navbar = () => {
           </Typography>
 
           {/* // MD SIZE LINKS */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 2 }}
+          >
             {pages.map((page) => (
               <Link
                 key={page.title}
-                href={page.href}
+                component={NavLink}
+                to={page.href}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page.title}

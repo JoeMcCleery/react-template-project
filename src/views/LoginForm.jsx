@@ -79,7 +79,6 @@ export const LoginForm = () => {
   return (
     <Box
       display={"flex"}
-      bgcolor={"lightblue"}
       width={"inherit"}
       height={"inherit"}
       justifyContent={"center"}
@@ -94,7 +93,7 @@ export const LoginForm = () => {
 
       <Paper sx={{ padding: 2 }}>
         <Typography variant="h4">Login</Typography>
-        <FormControl>
+        <Box sx={{ display: "grid", gap: 1 }}>
           <TextField
             label="Email"
             variant="outlined"
@@ -128,7 +127,7 @@ export const LoginForm = () => {
           <Box sx={standardTopMargin}>
             <Link to="/register">Register</Link>
           </Box>
-        </FormControl>
+        </Box>
       </Paper>
     </Box>
   );

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
-export const WelcomePage = () => {
+export const BitcoinRates = () => {
   // STATES / VAR
 
   // FUNCTIONS
