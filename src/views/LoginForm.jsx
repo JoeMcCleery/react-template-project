@@ -45,8 +45,6 @@ export const LoginForm = () => {
 
   const handleSubmit = () => {
     // API CALL
-    
-    
 
     axios
       .post("http://localhost:8000/user-auth", { email, password })
@@ -87,11 +85,14 @@ export const LoginForm = () => {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <Box position={"absolute"} top="150px">
+      <Box
+        position={"absolute"}
+        top="150px"
+      >
         {displayAlert()}
       </Box>
 
-      <Paper sx={{ padding: "10px" }}>
+      <Paper sx={{ padding: 2 }}>
         <Typography variant="h4">Login</Typography>
         <FormControl>
           <TextField
@@ -108,7 +109,10 @@ export const LoginForm = () => {
           />
           <FormControlLabel
             control={
-              <Checkbox value={rememberMe} onChange={handleRememberMeChange} />
+              <Checkbox
+                value={rememberMe}
+                onChange={handleRememberMeChange}
+              />
             }
             label="Remember Me"
           />
