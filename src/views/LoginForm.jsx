@@ -8,7 +8,7 @@ import {
   Typography,
   Alert,
 } from "@mui/material";
-import { FormControl, FormControlLabel } from "@mui/material";
+import { FormControlLabel } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMainContext } from "../store/mainStore";
