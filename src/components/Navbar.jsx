@@ -35,7 +35,7 @@ export const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -80,7 +80,10 @@ export const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page.title}
+                  onClick={handleCloseNavMenu}
+                >
                   <Link
                     href={page.href}
                     sx={{ color: "inherit", textDecoration: "none" }}
