@@ -7,29 +7,41 @@ import { LoginForm } from "./views/LoginForm";
 import { WelcomePage } from "./views/WelcomePage";
 import { MainProvider } from "./store/mainStore";
 import { Footer } from "./components/Footer";
-import { Box } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
+import { baseTheme } from "./themes/baseTheme";
 
 const App = () => {
   //RETURN
   return (
     <MainProvider>
-      <Box display={'flex'} flexDirection={'column'} height={'100vh'}>
-      <Navbar />
+      <ThemeProvider theme={baseTheme}>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          height={"100vh"}
+        >
+          <Navbar />
 
-      <Routes>
-        <Route index element={<LoginForm />} />
+          <Routes>
+            <Route
+              index
+              element={<LoginForm />}
+            />
 
-        <Route path="home" element={<WelcomePage />} />
+            <Route
+              path="home"
+              element={<WelcomePage />}
+            />
 
-        <Route
-          path="*"
-          element={<div>Hey this path doesnt exist yet...</div>}
-        />
-      </Routes>
+            <Route
+              path="*"
+              element={<div>Hey this path doesnt exist yet...</div>}
+            />
+          </Routes>
 
-      <Footer />
-
-      </Box>
+          <Footer />
+        </Box>
+      </ThemeProvider>
     </MainProvider>
   );
 };
